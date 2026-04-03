@@ -1,0 +1,59 @@
+@model ClaimPortal.ViewModels.EditClaimViewModel
+
+<h2 class="mt-3 mb-4">Edit Claim – @Model.ClaimNumber</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<form method="post" class="card p-4 shadow-sm">
+    <input type="hidden" asp-for="ClaimId" />
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Claim Number</label>
+            <input asp-for="ClaimNumber" class="form-control" readonly />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Patient Name</label>
+            <input asp-for="PatientName" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Submission Date</label>
+            <input asp-for="SubmissionDate" class="form-control" readonly />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Claim Amount</label>
+            <input asp-for="ClaimAmount" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>Processing Status</label>
+        <select asp-for="ProcessingStatus" class="form-select">
+            <option value="">-- Select Status --</option>
+            <option>Submitted</option>
+            <option>In Review</option>
+            <option>Approved</option>
+            <option>Rejected</option>
+            <option>Pending Docs</option>
+            <option>Closed</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Remarks</label>
+        <textarea asp-for="Remarks" class="form-control"></textarea>
+    </div>
+
+    <button class="btn btn-success w-100">Save</button>
+</form>
+
+<!-- ✅ This MUST be outside the form -->
+<div class="mt-3">
+    <a class="btn btn-secondary w-100" href="/Claim/Index">Back to List</a>
+</div>

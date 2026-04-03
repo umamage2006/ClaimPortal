@@ -1,0 +1,28 @@
+@model List<ClaimPortal.ViewModels.ClaimHistoryViewModel>
+
+<h2 class="mt-3 mb-4">Claim History – @ViewBag.ClaimNumber</h2>
+
+<table class="table table-bordered table-striped shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>Status</th>
+            <th>Updated By</th>
+            <th>Updated Date</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var h in Model)
+        {
+            <tr>
+                <td>@h.Status</td>
+                <td>@h.UpdatedBy</td>
+                <td>@h.UpdatedDate</td>
+                <td>@h.Remarks</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Claim/Index" class="btn btn-secondary mt-3">Back to Claims</a>
